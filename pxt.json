@@ -1,21 +1,28 @@
 {
-    "name": "robotbit",
+    "name": "move",
     "version": "1.1.1",
-    "description": "Extension for Kittenbot Robotbit",
+    "description": "Microsoft MakeCode package for 4tronix BitBot robot",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:kittenbot/pxt-neopixel#v0.6.15"
+        "fireled": "github:4tronix/FireLedsBase#0.1.4",
+        "firescreen": "github:4tronix/FireScreen#0.0.5"
     },
     "files": [
         "README.md",
-        "main.ts",
-        "_locales/zh-cn/robotbit-strings.json",
-        "_locales/zh-tw/robotbit-strings.json"
+        "bitbot.ts",
+        "_locales/no/BitBot-strings.json",
+        "_locales/no/BitBot-jsdoc-strings.json",
+        "_locales/nb/BitBot-strings.json",
+        "_locales/nb/BitBot-jsdoc-strings.json",
+        "_locales/nn/BitBot-strings.json",
+        "_locales/nn/BitBot-jsdoc-strings.json",
+        "_locales/fr/BitBot-strings.json",
+        "_locales/fr/BitBot-jsdoc-strings.json"
     ],
     "testFiles": [
-        "test.ts"
+        "tests.ts"
     ],
     "public": true,
-    "preferredEditor": "tsprj"
+    "yotta": {}
 }
