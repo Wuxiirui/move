@@ -1,42 +1,54 @@
- //% blockId=robotbit_matrix_clear block="Matrix Clear"
-    //% weight=65
-    //% blockGap=50
-    export function MatrixClear(): void {
-        if (!initializedMatrix) {
-            matrixInit();
-            initializedMatrix = true;
-        }
-        for (let i = 0; i < 16; i++) {
-            matBuf[i + 1] = 0;
-        }
-        matrixShow();
+namespace play {
+
+ /**
+      * Move robot forward (or backward) at speed.
+      * @param direction Move Forward or Reverse
+      * @param speed speed of motor between 0 and 100. eg: 60
+      */
+    //% blockId="BBGo" block="go%direction|at speed%speed|\\%"
+    //% speed.min=0 speed.max=100
+    //% weight=100
+    //% subcategory=Motors
+    export function go(direction: BBDirection, speed: number): void
+    {
+        move(BBMotor.Both, direction, speed);
     }
 
- //% blockId=robotbit_matrix_draw block="Matrix Draw|X %x|Y %y"
-    //% weight=69
-    export function MatrixDraw(x: number, y: number): void {
-        if (!initializedMatrix) {
-            matrixInit();
-            initializedMatrix = true;
-        }
-        x = Math.round(x)
-        y = Math.round(y)
-        
-        let idx = y * 2 + Math.idiv(x, 8);
-        
-        let tmp = matBuf[idx + 1];
-        tmp |= (1 << (x % 8));
-        matBuf[idx + 1] = tmp;
+/**
+      * Stop robot by coasting slowly to a halt or braking
+      * @param mode Brakes on or off
+      */
+    //% blockId="BBstop" block="stop with%mode"
+    //% weight=60
+    //% subcategory=Motors
+    export function stop(mode: BBStopMode): void
+    {
+        getModel();
+        let stopMode = 0;
+        if (mode == BBStopMode.Brake)
+            stopMode = 1;
+        pins.digitalWritePin(lMotorD0, stopMode);
+        pins.digitalWritePin(lMotorD1, stopMode);
+        pins.digitalWritePin(rMotorD0, stopMode);
+        pins.digitalWritePin(rMotorD1, stopMode);
     }
 
-
-
-    //% blockId=robotbit_matrix_refresh block="Matrix Refresh"
-    //% weight=69
-    export function MatrixRefresh(): void {
-        if (!initializedMatrix) {
-            matrixInit();
-            initializedMatrix = true;
+    function createCalib(speed: number): void
+    {
+        if (getVersionCode() == 5)
+        {        
+            let calibVal = 0;
+            if (speed < 60)
+                calibVal = calibration[1] - ((60 - speed)/30) * (calibration[1] - calibration[0]);
+            else
+                calibVal = calibration[2] - ((90 - speed)/30) * (calibration[2] - calibration[1]);
+            leftCalib = 0;
+            rightCalib = 0;
+            if (calibVal < 0)
+                leftCalib = Math.abs(calibVal);
+            else
+                rightCalib = calibVal;
         }
-        matrixShow();
     }
+
+}
