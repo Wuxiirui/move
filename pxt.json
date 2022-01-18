@@ -10,7 +10,7 @@
     },
     "files": [
         "README.md",
-        "bitbot.ts",
+        "move.ts",
         "_locales/no/move-strings.json",
         "_locales/no/move-jsdoc-strings.json",
         "_locales/nb/move-strings.json",
