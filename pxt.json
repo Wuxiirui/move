@@ -1,7 +1,7 @@
 {
     "name": "move",
     "version": "1.1.1",
-    "description": "Microsoft MakeCode package for 4tronix BitBot robot",
+    "description": "Extension to control the www.github.com",
     "license": "MIT",
     "dependencies": {
         "core": "*",
@@ -11,14 +11,14 @@
     "files": [
         "README.md",
         "bitbot.ts",
-        "_locales/no/BitBot-strings.json",
-        "_locales/no/BitBot-jsdoc-strings.json",
-        "_locales/nb/BitBot-strings.json",
-        "_locales/nb/BitBot-jsdoc-strings.json",
-        "_locales/nn/BitBot-strings.json",
-        "_locales/nn/BitBot-jsdoc-strings.json",
-        "_locales/fr/BitBot-strings.json",
-        "_locales/fr/BitBot-jsdoc-strings.json"
+        "_locales/no/move-strings.json",
+        "_locales/no/move-jsdoc-strings.json",
+        "_locales/nb/move-strings.json",
+        "_locales/nb/move-jsdoc-strings.json",
+        "_locales/nn/move-strings.json",
+        "_locales/nn/move-jsdoc-strings.json",
+        "_locales/fr/move-strings.json",
+        "_locales/fr/move-jsdoc-strings.json"
     ],
     "testFiles": [
         "tests.ts"
