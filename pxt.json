@@ -10,19 +10,14 @@
     },
     "files": [
         "README.md",
-        "move.ts",
-        "_locales/no/move-strings.json",
-        "_locales/no/move-jsdoc-strings.json",
-        "_locales/nb/move-strings.json",
-        "_locales/nb/move-jsdoc-strings.json",
-        "_locales/nn/move-strings.json",
-        "_locales/nn/move-jsdoc-strings.json",
-        "_locales/fr/move-strings.json",
-        "_locales/fr/move-jsdoc-strings.json"
-    ],
-    "testFiles": [
+        "move1.ts",
+        "_locales/xx/move-strings.json",
+        "_locales/xx/move-jsdoc-strings.json"
+    ], 
+  "testFiles": [
         "tests.ts"
     ],
     "public": true,
     "yotta": {}
 }
+
